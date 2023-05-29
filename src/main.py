@@ -1,16 +1,15 @@
 import random
 import time
-from algorithms.Node import Node
 from algorithms.handler import Solve
 
 
 def display(state: list) -> None:
     print("-------------")
-    print("| %i | %i | %i |" % (state[0], state[1], state[2]))
+    print(f"| {state[0]} | {state[1]} | {state[2]} |")
     print("-------------")
-    print("| %i | %i | %i |" % (state[3], state[4], state[5]))
+    print(f"| {state[3]} | {state[4]} | {state[5]} |")
     print("-------------")
-    print("| %i | %i | %i |" % (state[6], state[7], state[8]))
+    print(f"| {state[0]} | {state[7]} | {state[8]} |")
     print("-------------")
 
 def main() -> None:
