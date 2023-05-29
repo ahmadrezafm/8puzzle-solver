@@ -28,8 +28,8 @@ class Compare:
     @staticmethod
     def a_star_ida_star_compare(x: int, y: int):
         function = Function()
-        manhattan_distance_command_function_x = manhattan_distance_command_function_command(function, x)
-        manhattan_distance_command_function_y = manhattan_distance_command_function_command(function, y)
+        manhattan_distance_command_function_x = ManhattanDistanceCommandFunctionCommand(function, x)
+        manhattan_distance_command_function_y = ManhattanDistanceCommandFunctionCommand(function, y)
         invoker = Invoker()
         invoker.register(manhattan_distance_command_function_x, "manhattan_distance_command_function_x")
         invoker.register(manhattan_distance_command_function_y, "manhattan_distance_command_function_y")
@@ -54,3 +54,21 @@ class Compare:
             return 0
 
         return -1
+
+class AStarIDAStarCompareCommand(Command):
+    def __init__(self, compare, x, y):
+        self.__compare = compare
+        self.x = x
+        self.y = y
+
+    def execute(self):
+        self.__compare.a_star_ida_star_compare(self.x, self.y)
+
+class GreedyCompareCommand(Command):
+    def __init__(self, compare, x, y):
+        self.__compare = compare
+        self.x = x
+        self.y = y
+
+    def execute(self):
+        self.__compare.greedy_compare_command(self.x, self.y)

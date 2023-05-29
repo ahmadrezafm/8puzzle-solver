@@ -1,5 +1,7 @@
 import random
 import time
+from algorithms.Node import Node
+from algorithms.handler import Solve
 
 
 def display(state: list) -> None:
@@ -10,51 +12,6 @@ def display(state: list) -> None:
     print("-------------")
     print("| %i | %i | %i |" % (state[6], state[7], state[8]))
     print("-------------")
-
-
-class Node:
-    def __init__(self, state, parent, operator, depth, cost):
-        self.__state = state
-        self.__parent = parent
-        self.__operator = operator
-        self.__depth = depth
-        self.__cost = cost
-
-    def get_state(self):
-        return self.__state
-
-    def get_parent(self):
-        return self.__parent
-
-    def get_operator(self):
-        return self.__operator
-
-    def get_depth(self):
-        return self.__depth
-
-    def get_cost(self):
-        return self.__cost
-
-    def get_path_from_start(self):
-        state_list = []
-        moves = []
-
-        current = self
-        while current.get_operator() is not None:
-            state_list.append(current.get_state())
-            moves.append(current.get_operator())
-
-        state_list.reverse()
-        moves.reverse()
-
-        for state in state_list:
-            display(state)
-
-        return moves
-
-
-def create_node(state: int, parent, operator, depth, cost) -> Node:
-    return Node(state, parent, operator, depth, cost)
 
 def main() -> None:
     def create_list(choice: int) -> list:
@@ -78,10 +35,21 @@ def main() -> None:
 
     start_time = time.clock()
 
-    # get result
+    solve = Solve(state, [1, 2, 3, 8, 0, 4, 7, 6, 5])
+    result = solve.a_star()
 
     end_time = time.clock()
+    if result is None:
+        print("No solution")
+    elif result == [None]:
+        print("start node is the goal")
 
+    else:
+        print(result)
+        print(f"{len(result)} moves")
+
+    total_time = end_time - start_time
+    print(f"Total time: {total_time}")
 
 if __name__ == "__main__":
     main()

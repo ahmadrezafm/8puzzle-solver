@@ -38,7 +38,7 @@ class Function:
         invoker.register(manhattan_distance_heuristic, "manhattan_distance_heuristic")
         return node.depth + invoker.execute("manhattan_distance_heuristic")
 
-class out_place_tile_command_function_command(Command):
+class OutPlaceTileCommandFunctionCommand(Command):
     def __init__(self, function, node):
         self.__function = function
         self.node = node
@@ -46,7 +46,7 @@ class out_place_tile_command_function_command(Command):
     def execute(self):
         self.__function.out_place_tile_command_function(self.node)
 
-class manhattan_distance_command_function_command(Command):
+class ManhattanDistanceCommandFunctionCommand(Command):
     def __init__(self, function, node):
         self.__function = function
         self.node = node

@@ -1,14 +1,12 @@
 from a_star import *
-from bfs import *
-import ids
-import ida_star
 
 class Solve:
-    def __init__(self):
-        pass
+    def __init__(self, start, goal):
+        self.start = start
+        self.goal = goal
 
     def a_star(self):
-        perform_a_star()
+        return perform_a_star(self.start, self.goal)
 
     def bfs(self):
         pass
